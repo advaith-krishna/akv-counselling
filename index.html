@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AKV Counselling Centre | Empowering Minds, Supporting Lives</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container": "#f3ecec", "primary": "#5a5d57", "surface": "#fef8f7", "warm-sand": "#AFACA7",
+          "on-primary": "#ffffff", "on-surface": "#1d1b1b", "on-surface-variant": "#454842",
+          "surface-container-lowest": "#ffffff", "surface-base": "#F6F2EF", "sage-deep": "#5B5E55",
+          "secondary": "#5f5e5a", "surface-container-low": "#f9f2f1", "inverse-surface": "#323030",
+          "outline": "#767872", "surface-variant": "#e7e1e0", "error": "#ba1a1a", "on-secondary": "#ffffff",
+          "secondary-container": "#e2dfd9", "on-tertiary": "#ffffff"
+        },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        spacing: { "stack-md": "32px", "margin-desktop": "64px", "container-max": "1140px", "gutter": "24px", "margin-mobile": "20px", "stack-lg": "64px", "unit": "8px", "stack-sm": "16px" },
+        fontFamily: { "headline-lg-mobile": ["Newsreader"], "caption": ["Hanken Grotesk"], "display-lg": ["Newsreader"], "body-md": ["Hanken Grotesk"], "headline-lg": ["Newsreader"], "body-lg": ["Hanken Grotesk"], "label-md": ["Hanken Grotesk"], "headline-md": ["Newsreader"] },
+        fontSize: { "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "400"}], "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300"}], "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}] }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+  @keyframes breathing {
+    0% { transform: scale(1.05) translate(0%, 0%); }
+    50% { transform: scale(1.15) translate(-1%, -1%); }
+    100% { transform: scale(1.05) translate(0%, 0%); }
+  }
+  .hero-zoom { animation: breathing 40s ease-in-out infinite; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-float { animation: float 3s ease-in-out infinite; }
+
+  @keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  body { animation: pageFadeIn 1s ease-out forwards; }
+
+  .text-reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .text-reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  .stagger-item { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .stagger-item.visible { opacity: 1; transform: translateY(0); }
+  .hover-scale { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .hover-scale:hover { transform: scale(1.02); }
+  .active-scale:active { transform: scale(0.98); }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #fef8f7; }
+  ::-webkit-scrollbar-thumb { background: #AFACA7; border-radius: 10px; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .stat-item { animation: fadeUp 0.7s ease both; }
+  .stat-item:nth-child(1) { animation-delay: 0.5s; }
+  .stat-item:nth-child(2) { animation-delay: 0.65s; }
+  .stat-item:nth-child(3) { animation-delay: 0.8s; }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: #5a5d57;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .testimonial-card { border: 1px solid #e7e1e0; transition: border-color 0.3s, transform 0.3s; }
+  .testimonial-card:hover { border-color: #5a5d57; transform: translateY(-4px); }
+  .mobile-menu { display: none; }
+  .mobile-menu.open { display: flex; }
+
+  .btn-shine { position: relative; overflow: hidden; }
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+  }
+  .btn-shine:hover::after { left: 150%; transition: 0.7s; }
+
+  .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+  .faq-item.active .faq-content { max-height: 300px; }
+  .faq-item .faq-toggle { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .faq-item .faq-icon { transition: transform 0.3s ease; }
+  .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+  .site-header {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(18px) saturate(1.35);
+    -webkit-backdrop-filter: blur(18px) saturate(1.35);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+  .site-header .header-brand,
+  .site-header .header-link {
+    color: rgba(255,255,255,0.92);
+    text-shadow: 0 1px 12px rgba(0,0,0,0.22);
+  }
+  .site-header .header-link:hover,
+  .site-header .header-brand:hover {
+    color: #ffffff;
+  }
+  .site-header .header-cta {
+    background: rgba(255,255,255,0.18);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.28);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .site-header .header-cta:hover {
+    background: rgba(255,255,255,0.28);
+  }
+  .site-header .hamburger-line {
+    background: rgba(255,255,255,0.92);
+  }
+  .site-header.scrolled {
+    background: rgba(254,248,247,0.86);
+    border-color: rgba(175,172,167,0.28);
+    box-shadow: 0 12px 32px rgba(29,27,27,0.08), inset 0 1px 0 rgba(255,255,255,0.7);
+  }
+  .site-header.scrolled .header-brand,
+  .site-header.scrolled .header-link {
+    color: #5f5e5a;
+    text-shadow: none;
+  }
+  .site-header.scrolled .header-link:hover,
+  .site-header.scrolled .header-brand:hover {
+    color: #5a5d57;
+  }
+  .site-header.scrolled .header-cta {
+    background: #5a5d57;
+    color: #ffffff;
+    border-color: #5a5d57;
+  }
+  .site-header.scrolled .header-cta:hover {
+    background: #5B5E55;
+  }
+  .site-header.scrolled .hamburger-line {
+    background: #1d1b1b;
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: #5a5d57 !important; box-shadow: 0 0 0 2px rgba(90,93,87,0.1); }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(90,93,87,0.35); }
+    50% { box-shadow: 0 0 0 6px rgba(90,93,87,0); }
+  }
+  .pulse-dot { animation: pulse-dot 2.2s infinite; }
+</style>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary/20 selection:text-primary overflow-x-hidden">
+
+<!-- Mobile Menu -->
+<div class="mobile-menu fixed inset-0 z-[999] bg-surface/98 backdrop-blur-xl flex-col items-center justify-center gap-10" id="mobileMenu">
+  <button class="absolute top-6 right-6 text-on-surface text-2xl font-light" id="mobileClose">✕</button>
+  <a class="font-display-lg text-[2rem] text-on-surface hover:text-primary transition-colors" href="#about" onclick="closeMobileMenu()">About</a>
+  <a class="font-display-lg text-[2rem] text-on-surface hover:text-primary transition-colors" href="#services" onclick="closeMobileMenu()">Services</a>
+  <a class="font-display-lg text-[2rem] text-on-surface hover:text-primary transition-colors" href="#stories" onclick="closeMobileMenu()">Stories</a>
+  <a class="font-display-lg text-[2rem] text-on-surface hover:text-primary transition-colors" href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="hidden fixed inset-0 z-[1000] items-center justify-center bg-on-surface/45 backdrop-blur-sm px-gutter">
+  <div class="w-full max-w-lg bg-surface-container-lowest border border-warm-sand/30 rounded-xl shadow-2xl p-stack-md relative">
+    <button type="button" onclick="closeBookingModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors" aria-label="Close booking form">&times;</button>
+    <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase block mb-2">Appointment Details</span>
+    <h3 class="font-headline-md text-headline-md mb-2" style="font-family: Newsreader, serif;">Request a Session</h3>
+    <p id="bookingServiceLabel" class="font-body-md text-on-surface-variant mb-6">Selected service: General Appointment</p>
+    <div class="space-y-4">
+      <div class="flex flex-col gap-1.5">
+        <label class="font-label-md text-label-md text-on-surface-variant" for="bookingName">Full Name *</label>
+        <input id="bookingName" type="text" placeholder="Enter your name" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface placeholder:text-outline/60 transition-colors">
+      </div>
+      <div class="flex flex-col gap-1.5">
+        <label class="font-label-md text-label-md text-on-surface-variant" for="bookingOccupation">Occupation / Grade of Studying *</label>
+        <input id="bookingOccupation" type="text" placeholder="Example: Teacher or Grade 10 student" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface placeholder:text-outline/60 transition-colors">
+      </div>
+      <div class="flex flex-col gap-1.5">
+        <label class="font-label-md text-label-md text-on-surface-variant" for="bookingDate">Preferred Appointment Date *</label>
+        <input id="bookingDate" type="date" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface transition-colors">
+      </div>
+      <div id="bookingError" class="hidden text-center p-3 bg-surface-container-low border border-warm-sand/30 rounded font-body-md text-on-surface-variant">
+        Please enter your name, occupation/grade, and appointment date.
+      </div>
+      <button type="button" onclick="sendBookingMessage()" class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 uppercase tracking-widest rounded hover:bg-sage-deep active:scale-[0.98] transition-all duration-200">
+        Continue to WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<header class="site-header fixed top-0 w-full z-50 flex justify-between items-center px-gutter md:px-margin-desktop h-20 border-b transition-all duration-300" id="navbar">
+  <a href="#hero" class="header-brand font-headline-md text-headline-md font-semibold transition-colors duration-300" style="font-family: Newsreader, serif;">AKV Counselling</a>
+  <nav class="hidden md:flex items-center space-x-stack-md">
+    <a class="header-link font-medium transition-colors duration-300 font-label-md text-label-md" href="#about">About</a>
+    <a class="header-link font-medium transition-colors duration-300 font-label-md text-label-md" href="#services">Services</a>
+    <a class="header-link font-medium transition-colors duration-300 font-label-md text-label-md" href="#stories">Stories</a>
+    <a class="header-link font-medium transition-colors duration-300 font-label-md text-label-md" href="#contact">Contact</a>
+  </nav>
+  <div class="flex items-center gap-3">
+    <a href="#booking" onclick="openBookingModal('General Appointment')" class="header-cta hidden md:block px-6 py-2.5 rounded-full font-label-md text-label-md active:scale-95 transition-all duration-200">
+      Book a Session
+    </a>
+    <button class="md:hidden flex flex-col gap-1.5 p-2" id="hamburger" onclick="openMobileMenu()">
+      <span class="hamburger-line block w-5 h-0.5 transition-colors duration-300"></span>
+      <span class="hamburger-line block w-5 h-0.5 transition-colors duration-300"></span>
+      <span class="hamburger-line block w-5 h-0.5 transition-colors duration-300"></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="relative h-[870px] overflow-hidden flex items-center justify-center" id="hero">
+    <div class="absolute inset-0 z-0">
+      <img alt="A serene landscape showing mist-covered mountains at dawn" class="hero-zoom w-full h-full object-cover grayscale-[10%] brightness-[0.85]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqxiLpwrXeNBESCenbgO8-JkK50Fu6xcTk7scy8rV1DXsvXZiFE5egQlTmnbaWAHlCyxHMXymYUFrwNPYGE4Xp1nBhxLoqir8A92LNPdX8oQejufvTZfh5TToKdoTa6ZzMIIzyPFByOsb66l3UoyZ2SXbnVdhCISauVUUdXX_pMM7UDeDDa1pxBuoGmw0Eu9oEwiRUCGVrTysFW9aid8_Fu3Gktk3sIiZt8BWPASVdcATXqR86ap976CT8CLWP4qeF28cESw4xjMw"/>
+    </div>
+    <div class="absolute inset-0 bg-black/20 z-10"></div>
+    <div class="relative z-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center text-white w-full">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md font-label-md text-label-md mb-stack-sm text-white/90 text-reveal">
+        <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+        17+ Years Professional Experience
+      </div>
+      <h1 class="font-display-lg text-[48px] md:text-[64px] leading-tight mb-stack-sm drop-shadow-lg text-reveal" style="transition-delay: 100ms; text-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px; font-family: Newsreader, serif; font-weight: 300;">
+        The place for <br/><span class="italic font-light">self empowerment</span>
+      </h1>
+      <p class="font-body-lg text-body-lg max-w-xl mb-stack-md leading-relaxed mx-auto text-white/90 text-reveal" style="transition-delay: 200ms;">
+        Empowering minds and supporting lives through personalized counselling and holistic mental wellness.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center text-reveal" style="transition-delay: 300ms;">
+        <a class="bg-white text-sage-deep px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-surface hover:-translate-y-1 active:scale-95 shadow-lg shadow-black/5 transition-all btn-shine" href="#booking" onclick="openBookingModal('General Appointment')">
+          Schedule an Appointment
+        </a>
+        <a class="bg-transparent backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-white/10 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 active:scale-95 btn-shine" href="#booking" onclick="openBookingModal('General Inquiry')">
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+          WhatsApp Contact
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT PREVIEW ── -->
+  <section class="py-stack-lg bg-surface-container-lowest" id="about">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="grid md:grid-cols-2 gap-stack-lg items-start">
+        <div>
+          <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase block mb-stack-sm text-reveal">The Practice</span>
+          <h2 class="font-display-lg text-on-surface text-reveal" style="font-family: Newsreader, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15;" data-delay="100">
+            A <em style="font-style:italic;">Safe Space</em><br>to Heal &amp; Grow
+          </h2>
+
+          <div class="mt-10 space-y-4 text-reveal" data-delay="200">
+            <div class="flex items-center gap-4 p-5 bg-surface-base border border-warm-sand/30 rounded-lg hover:border-primary/30 transition-all duration-300 reveal-left">
+              <svg class="text-primary w-7 h-7 shrink-0 animate-float" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.35-1.22C5.86 15.8 2.7 12.94 2.7 9.43 2.7 6.57 4.94 4.35 7.8 4.35c1.61 0 3.15.75 4.2 1.94 1.05-1.19 2.59-1.94 4.2-1.94 2.86 0 5.1 2.22 5.1 5.08 0 3.51-3.16 6.37-7.95 10.7L12 21.35z"/>
+              </svg>
+              <div>
+                <div class="font-label-md text-label-md text-on-surface mb-0.5">Compassionate &amp; Confidential</div>
+                <div class="font-body-md text-on-surface-variant text-sm">Every session held in strict confidence. Your story is safe with us — always.</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-5 bg-surface-base border border-warm-sand/30 rounded-lg hover:border-primary/30 transition-all duration-300 reveal-left">
+              <span class="material-symbols-outlined text-primary animate-float" style="font-size:28px; font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;">star</span>
+              <div>
+                <div class="font-label-md text-label-md text-on-surface mb-0.5">Women Empowerment Focus</div>
+                <div class="font-body-md text-on-surface-variant text-sm">Dedicated support for women navigating identity, independence, and growth.</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-5 bg-surface-base border border-warm-sand/30 rounded-lg hover:border-primary/30 transition-all duration-300 reveal-left">
+              <span class="material-symbols-outlined text-primary animate-float" style="font-size:28px; font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;">eco</span>
+              <div>
+                <div class="font-label-md text-label-md text-on-surface mb-0.5">Holistic Emotional Wellness</div>
+                <div class="font-body-md text-on-surface-variant text-sm">Mind, heart, and social wellbeing — because healing is whole-person work.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-12 text-reveal" data-delay="150">
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">
+            With over 17 years of dedicated experience in counselling and social work, AKV Counselling Centre provides a warm, confidential, and empowering environment where every individual is heard, respected, and supported on their journey toward emotional wellbeing.
+          </p>
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-10">
+            Our methodology is unhurried and intentional. We reject the transactional nature of modern care for a human-first approach that prioritises your pace and your unique path toward healing.
+          </p>
+
+          <div class="flex flex-wrap gap-2.5">
+            <span class="bg-surface-container border border-warm-sand/40 rounded-full px-4 py-1.5 font-label-md text-label-md text-on-surface-variant">17+ Years</span>
+            <span class="bg-surface-container border border-warm-sand/40 rounded-full px-4 py-1.5 font-label-md text-label-md text-on-surface-variant">Certified</span>
+            <span class="bg-surface-container border border-warm-sand/40 rounded-full px-4 py-1.5 font-label-md text-label-md text-on-surface-variant">Licensed Social Worker</span>
+            <span class="bg-surface-container border border-warm-sand/40 rounded-full px-4 py-1.5 font-label-md text-label-md text-on-surface-variant">Women Empowerment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FULL ABOUT SECTION ── -->
+  <section class="py-stack-lg bg-surface" id="about-full">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="grid md:grid-cols-2 gap-stack-lg items-center mb-stack-lg">
+        <div class="text-reveal reveal-left" data-delay="0">
+          <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase block mb-4">The Journey</span>
+          <h2 class="font-display-lg text-on-surface mb-6" style="font-family: Newsreader, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;">How AKV Came to Be</h2>
+          <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+            AKV Counselling Centre was founded on the belief that mental wellness deserves the same intentional, holistic care as physical health. After years of working in social welfare and witnessing the profound impact of compassionate listening and evidence-based therapeutic methods, I committed to creating a space where people could truly be heard.
+          </p>
+          <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+            Every session at AKV is guided by a simple principle: your emotional wellbeing matters. Whether you're navigating relationship complexities, building confidence, recovering from trauma, or simply seeking clarity — you deserve a therapist who sees you, respects your pace, and empowers your journey.
+          </p>
+          <p class="font-body-lg text-on-surface-variant leading-relaxed">
+            Over the past 17 years, I've had the privilege of supporting 500+ individuals toward lasting transformation. Each story, each breakthrough, reinforces my commitment to this meaningful work.
+          </p>
+        </div>
+
+        <div class="bg-surface-container-lowest p-10 rounded-xl text-reveal reveal-right" data-delay="150">
+          <div class="space-y-8">
+            <div class="border-l-4 border-primary pl-6">
+              <div class="font-headline-md text-headline-md text-primary mb-2" style="font-family: Newsreader, serif;">17+ Years</div>
+              <p class="font-body-md text-on-surface-variant">Dedicated experience in counselling & social work</p>
+            </div>
+            <div class="border-l-4 border-primary pl-6">
+              <div class="font-headline-md text-headline-md text-primary mb-2" style="font-family: Newsreader, serif;">500+</div>
+              <p class="font-body-md text-on-surface-variant">Individuals supported toward emotional wellbeing & growth</p>
+            </div>
+            <div class="border-l-4 border-primary pl-6">
+              <div class="font-headline-md text-headline-md text-primary mb-2" style="font-family: Newsreader, serif;">100%</div>
+              <p class="font-body-md text-on-surface-variant">Commitment to confidentiality, compassion & ethics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OUR PHILOSOPHY ── -->
+  <section class="py-stack-lg bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="text-center mb-stack-lg">
+        <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase text-reveal">Our Core Values</span>
+        <h2 class="font-display-lg text-on-surface mt-3 text-reveal" style="font-family: Newsreader, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;" data-delay="100">Principles That Guide Us</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-surface rounded-lg text-reveal reveal-left" data-delay="0">
+          <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center mb-6 animate-float">
+            <svg class="text-primary w-7 h-7 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.35-1.22C5.86 15.8 2.7 12.94 2.7 9.43 2.7 6.57 4.94 4.35 7.8 4.35c1.61 0 3.15.75 4.2 1.94 1.05-1.19 2.59-1.94 4.2-1.94 2.86 0 5.1 2.22 5.1 5.08 0 3.51-3.16 6.37-7.95 10.7L12 21.35z"/>
+            </svg>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-4" style="font-family: Newsreader, serif;">Compassion First</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Every interaction is rooted in empathy and genuine care. Your struggles are valid, and you deserve to be met with kindness and understanding.</p>
+        </div>
+
+        <div class="p-8 bg-surface rounded-lg text-reveal reveal-right" data-delay="80">
+          <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center mb-6 animate-float">
+            <span class="material-symbols-outlined text-primary" style="font-size:28px; font-variation-settings: 'FILL' 1;">security</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-4" style="font-family: Newsreader, serif;">Confidentiality</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Your privacy is sacred. Every session, every story, is held in strict confidence — because trust is the foundation of healing.</p>
+        </div>
+
+        <div class="p-8 bg-surface rounded-lg text-reveal reveal-left" data-delay="160">
+          <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center mb-6 animate-float">
+            <span class="material-symbols-outlined text-primary" style="font-size:28px; font-variation-settings: 'FILL' 1;">auto_awesome</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-4" style="font-family: Newsreader, serif;">Holistic Growth</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">We don't treat symptoms in isolation. Healing happens when mind, heart, relationships, and social wellbeing are all considered.</p>
+        </div>
+
+        <div class="p-8 bg-surface rounded-lg text-reveal reveal-right" data-delay="0">
+          <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center mb-6 animate-float">
+            <span class="material-symbols-outlined text-primary" style="font-size:28px; font-variation-settings: 'FILL' 1;">schedule</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-4" style="font-family: Newsreader, serif;">Your Pace</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Healing isn't rushed. We work at your rhythm, respecting your readiness, your boundaries, and your unique path forward.</p>
+        </div>
+
+        <div class="p-8 bg-surface rounded-lg text-reveal reveal-left" data-delay="80">
+          <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center mb-6 animate-float">
+            <span class="material-symbols-outlined text-primary" style="font-size:28px; font-variation-settings: 'FILL' 1;">science</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-4" style="font-family: Newsreader, serif;">Evidence-Based</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Our therapeutic approaches are grounded in research and best practices — combining science with human insight.</p>
+        </div>
+
+        <div class="p-8 bg-surface rounded-lg text-reveal reveal-right" data-delay="160">
+          <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center mb-6 animate-float">
+            <span class="material-symbols-outlined text-primary" style="font-size:28px; font-variation-settings: 'FILL' 1;">lightbulb</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-4" style="font-family: Newsreader, serif;">Empowerment</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Therapy at AKV isn't about dependency — it's about building your strength, confidence, and capacity to navigate life independently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CREDENTIALS ── -->
+  <section class="py-stack-lg bg-surface">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-stack-lg">
+          <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase text-reveal">Expertise</span>
+          <h2 class="font-display-lg text-on-surface mt-3 text-reveal" style="font-family: Newsreader, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;" data-delay="100">Professional Credentials</h2>
+        </div>
+
+        <div class="space-y-5 text-reveal" data-delay="150">
+          <div class="p-6 border-l-4 border-primary bg-surface-container-lowest rounded">
+            <div class="font-headline-md text-headline-md text-primary mb-2" style="font-family: Newsreader, serif;">Licensed Professional Counsellor</div>
+            <p class="font-body-md text-on-surface-variant">Certified & registered with relevant regulatory bodies. Committed to ongoing professional development and ethical practice.</p>
+          </div>
+          <div class="p-6 border-l-4 border-primary bg-surface-container-lowest rounded">
+            <div class="font-headline-md text-headline-md text-primary mb-2" style="font-family: Newsreader, serif;">Social Work Specialist</div>
+            <p class="font-body-md text-on-surface-variant">17+ years of experience in community welfare, systemic change, and individual empowerment. Deep understanding of social determinants affecting mental health.</p>
+          </div>
+          <div class="p-6 border-l-4 border-primary bg-surface-container-lowest rounded">
+            <div class="font-headline-md text-headline-md text-primary mb-2" style="font-family: Newsreader, serif;">Women Empowerment Advocate</div>
+            <p class="font-body-md text-on-surface-variant">Specialized focus on supporting women through identity exploration, independence building, and holistic wellbeing. Certified in trauma-informed care & gender-sensitive counselling.</p>
+          </div>
+          <div class="p-6 border-l-4 border-primary bg-surface-container-lowest rounded">
+            <div class="font-headline-md text-headline-md text-primary mb-2" style="font-family: Newsreader, serif;">Multi-Modality Training</div>
+            <p class="font-body-md text-on-surface-variant">Trained in CBT, Mindfulness-Based Therapy, Systemic Therapy, Humanistic & Person-Centered approaches, and Trauma Recovery methods.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THERAPEUTIC APPROACH ── -->
+  <section class="py-stack-lg bg-surface-container-lowest">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="text-center mb-stack-lg">
+        <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase text-reveal">How We Work</span>
+        <h2 class="font-display-lg text-on-surface mt-3 text-reveal" style="font-family: Newsreader, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;" data-delay="100">Therapeutic Modalities</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="text-reveal" data-delay="0">
+          <div class="mb-4">
+            <span class="text-[2.8rem] font-headline-lg text-primary/30">01</span>
+          </div>
+          <h3 class="font-headline-lg text-headline-lg text-on-surface mb-3" style="font-family: Newsreader, serif;">CBT (Cognitive Behavioral Therapy)</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Helps you identify and transform limiting thought patterns. By understanding the connection between thoughts, feelings, and behaviors, you develop practical strategies for lasting change.</p>
+        </div>
+
+        <div class="text-reveal" data-delay="80">
+          <div class="mb-4">
+            <span class="text-[2.8rem] font-headline-lg text-primary/30">02</span>
+          </div>
+          <h3 class="font-headline-lg text-headline-lg text-on-surface mb-3" style="font-family: Newsreader, serif;">Mindfulness & Awareness</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Cultivate present-moment awareness to reduce anxiety, build emotional resilience, and connect with inner peace. Techniques grounded in evidence-based mindfulness practices.</p>
+        </div>
+
+        <div class="text-reveal" data-delay="160">
+          <div class="mb-4">
+            <span class="text-[2.8rem] font-headline-lg text-primary/30">03</span>
+          </div>
+          <h3 class="font-headline-lg text-headline-lg text-on-surface mb-3" style="font-family: Newsreader, serif;">Systemic Therapy</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Understand your challenges within the context of your relationships and environment. Perfect for family dynamics, relational issues, and complex social situations.</p>
+        </div>
+
+        <div class="text-reveal" data-delay="240">
+          <div class="mb-4">
+            <span class="text-[2.8rem] font-headline-lg text-primary/30">04</span>
+          </div>
+          <h3 class="font-headline-lg text-headline-lg text-on-surface mb-3" style="font-family: Newsreader, serif;">Humanistic & Person-Centered</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Rooted in genuine empathy and unconditional positive regard. You're supported in discovering your own answers, building self-compassion, and actualizing your potential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES PREVIEW ── -->
+  <section class="py-[120px] bg-surface" id="services">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="text-center mb-stack-lg">
+        <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase text-reveal">What We Offer</span>
+        <h2 class="font-display-lg text-on-surface mt-3 text-reveal" style="font-family: Newsreader, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;" data-delay="100">
+          Our <em style="font-style: italic;">Services</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="#personal-counselling" class="service-card relative p-stack-md bg-surface-container-lowest border border-warm-sand/20 rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-sm text-reveal no-underline" data-delay="0">
+          <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-primary" style="font-size:24px;">psychology</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-3 text-on-surface" style="font-family: Newsreader, serif;">Personal Counselling</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">One-on-one confidential sessions tailored to your unique emotional needs, helping you find clarity, strength, and purpose.</p>
+          <div class="mt-5 inline-flex items-center gap-1.5 font-label-md text-label-md text-primary group-hover:gap-3 transition-all">Learn More <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></div>
+        </a>
+
+        <a href="#women-empowerment" class="service-card relative p-stack-md bg-surface-container-lowest border border-warm-sand/20 rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-sm text-reveal no-underline" data-delay="80">
+          <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-primary" style="font-size:24px;">self_improvement</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-3 text-on-surface" style="font-family: Newsreader, serif;">Women Empowerment Support</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Specialised guidance for women — building confidence, assertiveness, self-worth, and independence in every area of life.</p>
+          <div class="mt-5 inline-flex items-center gap-1.5 font-label-md text-label-md text-primary">Learn More <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></div>
+        </a>
+
+        <a href="#emotional-wellness" class="service-card relative p-stack-md bg-surface-container-lowest border border-warm-sand/20 rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-sm text-reveal no-underline" data-delay="160">
+          <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-primary" style="font-size:24px;">spa</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-3 text-on-surface" style="font-family: Newsreader, serif;">Emotional Wellness Guidance</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Develop healthy emotional habits, process difficult feelings, and cultivate inner peace through proven therapeutic approaches.</p>
+          <div class="mt-5 inline-flex items-center gap-1.5 font-label-md text-label-md text-primary">Learn More <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></div>
+        </a>
+
+        <a href="#family-counselling" class="service-card relative p-stack-md bg-surface-container-lowest border border-warm-sand/20 rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-sm text-reveal no-underline" data-delay="0">
+          <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+            <svg class="text-primary w-6 h-6 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M3 10.8 12 3l9 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5.5 9.7V20h13V9.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17.1s-3.15-1.9-3.15-4.05c0-1.15.87-2 1.95-2 .66 0 1.08.24 1.2.38.12-.14.54-.38 1.2-.38 1.08 0 1.95.85 1.95 2 0 2.15-3.15 4.05-3.15 4.05z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-3 text-on-surface" style="font-family: Newsreader, serif;">Family Counselling</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Strengthen family bonds, resolve conflicts, and create a nurturing home environment through compassionate family therapy.</p>
+          <div class="mt-5 inline-flex items-center gap-1.5 font-label-md text-label-md text-primary">Learn More <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></div>
+        </a>
+
+        <a href="#student-guidance" class="service-card relative p-stack-md bg-surface-container-lowest border border-warm-sand/20 rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-sm text-reveal no-underline" data-delay="80">
+          <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-primary" style="font-size:24px;">menu_book</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-3 text-on-surface" style="font-family: Newsreader, serif;">Student Guidance</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Supporting students through academic pressure, career choices, peer challenges, and the emotional complexities of growing up.</p>
+          <div class="mt-5 inline-flex items-center gap-1.5 font-label-md text-label-md text-primary">Learn More <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></div>
+        </a>
+
+        <a href="#stress-anxiety" class="service-card relative p-stack-md bg-surface-container-lowest border border-warm-sand/20 rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-sm text-reveal no-underline" data-delay="160">
+          <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-primary" style="font-size:24px;">sentiment_calm</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md mb-3 text-on-surface" style="font-family: Newsreader, serif;">Stress &amp; Anxiety Support</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">Practical tools and therapeutic support to manage stress, overcome anxiety, and reclaim your sense of calm and control.</p>
+          <div class="mt-5 inline-flex items-center gap-1.5 font-label-md text-label-md text-primary">Learn More <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FULL SERVICES SECTION ── -->
+  <section class="py-stack-lg bg-surface" id="services-full">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="space-y-16">
+
+        <!-- Service 1 -->
+        <div class="grid md:grid-cols-2 gap-stack-lg items-center text-reveal" id="personal-counselling" data-delay="0">
+          <div class="order-2 md:order-1">
+            <div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-primary" style="font-size:32px;">psychology</span>
+            </div>
+            <h2 class="font-display-lg text-on-surface mb-4" style="font-family: Newsreader, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;">Personal Counselling</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">One-on-one confidential sessions designed specifically for you. Explore your emotions, clarify your thoughts, and discover your inner strength.</p>
+            <div class="space-y-3 mb-6">
+              <p class="font-body-md text-on-surface"><strong>Who it's for:</strong> Individuals seeking emotional support, clarity, or personal growth</p>
+              <p class="font-body-md text-on-surface"><strong>Duration:</strong> 50-60 minute sessions, flexible scheduling</p>
+              <p class="font-body-md text-on-surface"><strong>Outcomes:</strong> Greater self-awareness, emotional resilience, actionable clarity</p>
+            </div>
+            <a href="#booking" onclick="openBookingModal('Personal Counselling')" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-sage-deep transition-all btn-shine">Book Now <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+          </div>
+          <div class="order-1 md:order-2 bg-surface-container-lowest p-8 rounded-lg"></div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="grid md:grid-cols-2 gap-stack-lg items-center text-reveal" id="women-empowerment" data-delay="80">
+          <div>
+            <div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-primary" style="font-size:32px;">self_improvement</span>
+            </div>
+            <h2 class="font-display-lg text-on-surface mb-4" style="font-family: Newsreader, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;">Women Empowerment Support</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">Specialized sessions for women navigating identity, independence, relationships, and personal power. Build confidence, set boundaries, and reclaim your voice.</p>
+            <div class="space-y-3 mb-6">
+              <p class="font-body-md text-on-surface"><strong>Who it's for:</strong> Women seeking confidence building, assertiveness training, or identity exploration</p>
+              <p class="font-body-md text-on-surface"><strong>Focus areas:</strong> Self-worth, independence, relationships, career choices</p>
+              <p class="font-body-md text-on-surface"><strong>Outcomes:</strong> Increased confidence, healthy boundaries, authentic self-expression</p>
+            </div>
+            <a href="#booking" onclick="openBookingModal('Women Empowerment Support')" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-sage-deep transition-all btn-shine">Book Now <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+          </div>
+          <div class="bg-surface-container-lowest p-8 rounded-lg"></div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="grid md:grid-cols-2 gap-stack-lg items-center text-reveal" id="emotional-wellness" data-delay="160">
+          <div class="order-2 md:order-1">
+            <div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-primary" style="font-size:32px;">spa</span>
+            </div>
+            <h2 class="font-display-lg text-on-surface mb-4" style="font-family: Newsreader, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;">Emotional Wellness Guidance</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">Develop healthy emotional habits and cultivate inner peace. Learn practical tools to process difficult feelings and maintain emotional balance.</p>
+            <div class="space-y-3 mb-6">
+              <p class="font-body-md text-on-surface"><strong>Who it's for:</strong> Anyone wanting to improve emotional regulation and wellbeing</p>
+              <p class="font-body-md text-on-surface"><strong>Techniques:</strong> Mindfulness, emotional awareness, coping strategies</p>
+              <p class="font-body-md text-on-surface"><strong>Outcomes:</strong> Better emotional regulation, inner calm, resilience</p>
+            </div>
+            <a href="#booking" onclick="openBookingModal('Emotional Wellness Guidance')" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-sage-deep transition-all btn-shine">Book Now <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+          </div>
+          <div class="order-1 md:order-2 bg-surface-container-lowest p-8 rounded-lg"></div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="grid md:grid-cols-2 gap-stack-lg items-center text-reveal" id="family-counselling" data-delay="0">
+          <div>
+            <div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+              <svg class="text-primary w-8 h-8 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M3 10.8 12 3l9 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.5 9.7V20h13V9.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 17.1s-3.15-1.9-3.15-4.05c0-1.15.87-2 1.95-2 .66 0 1.08.24 1.2.38.12-.14.54-.38 1.2-.38 1.08 0 1.95.85 1.95 2 0 2.15-3.15 4.05-3.15 4.05z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h2 class="font-display-lg text-on-surface mb-4" style="font-family: Newsreader, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;">Family Counselling</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">Strengthen family bonds, resolve conflicts, and create a nurturing home environment. Work together to improve communication and understanding.</p>
+            <div class="space-y-3 mb-6">
+              <p class="font-body-md text-on-surface"><strong>Who it's for:</strong> Families, couples, or individuals with relationship challenges</p>
+              <p class="font-body-md text-on-surface"><strong>Focus:</strong> Communication, conflict resolution, systemic family patterns</p>
+              <p class="font-body-md text-on-surface"><strong>Outcomes:</strong> Stronger relationships, better communication, renewed harmony</p>
+            </div>
+            <a href="#booking" onclick="openBookingModal('Family Counselling')" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-sage-deep transition-all btn-shine">Book Now <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+          </div>
+          <div class="bg-surface-container-lowest p-8 rounded-lg"></div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="grid md:grid-cols-2 gap-stack-lg items-center text-reveal" id="student-guidance" data-delay="80">
+          <div class="order-2 md:order-1">
+            <div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-primary" style="font-size:32px;">menu_book</span>
+            </div>
+            <h2 class="font-display-lg text-on-surface mb-4" style="font-family: Newsreader, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;">Student Guidance</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">Supporting students through academic pressure, career decisions, peer challenges, and the emotional complexities of growing up.</p>
+            <div class="space-y-3 mb-6">
+              <p class="font-body-md text-on-surface"><strong>Who it's for:</strong> School and college students navigating academic and personal challenges</p>
+              <p class="font-body-md text-on-surface"><strong>Support areas:</strong> Academic stress, career choices, peer relationships, identity</p>
+              <p class="font-body-md text-on-surface"><strong>Outcomes:</strong> Confidence, clarity on goals, better stress management</p>
+            </div>
+            <a href="#booking" onclick="openBookingModal('Student Guidance')" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-sage-deep transition-all btn-shine">Book Now <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+          </div>
+          <div class="order-1 md:order-2 bg-surface-container-lowest p-8 rounded-lg"></div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="grid md:grid-cols-2 gap-stack-lg items-center text-reveal" id="stress-anxiety" data-delay="160">
+          <div>
+            <div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-primary" style="font-size:32px;">sentiment_calm</span>
+            </div>
+            <h2 class="font-display-lg text-on-surface mb-4" style="font-family: Newsreader, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;">Stress & Anxiety Support</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">Practical tools and therapeutic support to manage stress, overcome anxiety, and reclaim your sense of calm and control.</p>
+            <div class="space-y-3 mb-6">
+              <p class="font-body-md text-on-surface"><strong>Who it's for:</strong> Anyone experiencing stress, anxiety, or panic</p>
+              <p class="font-body-md text-on-surface"><strong>Techniques:</strong> CBT, breathing exercises, grounding techniques, lifestyle strategies</p>
+              <p class="font-body-md text-on-surface"><strong>Outcomes:</strong> Anxiety reduction, better coping skills, restored calm</p>
+            </div>
+            <a href="#booking" onclick="openBookingModal('Stress & Anxiety Support')" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-sage-deep transition-all btn-shine">Book Now <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+          </div>
+          <div class="bg-surface-container-lowest p-8 rounded-lg"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="py-[160px] bg-surface-container-low" id="testimonials">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="text-center mb-stack-lg text-reveal">
+        <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase">Voices of Healing</span>
+        <h2 class="font-display-lg text-on-surface mt-3" style="font-family: Newsreader, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;">
+          Stories That <em style="font-style:italic;">Inspire</em>
+        </h2>
+      </div>
+
+      <div class="relative mb-16 text-reveal" data-delay="100">
+        <span class="absolute -top-16 -left-6 text-[120px] text-primary/5 select-none pointer-events-none" style="font-family: Newsreader, serif; line-height: 1;">"</span>
+        <div class="max-w-3xl mx-auto text-center">
+          <blockquote class="text-on-surface italic leading-tight mb-stack-sm" style="font-family: Newsreader, serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; line-height: 1.4;">
+            "AKV Counselling gave me the courage to reclaim my life. The sessions were incredibly empowering — I finally feel like myself again after years of self-doubt."
+          </blockquote>
+          <cite class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] not-italic">— Priya M., Personal Counselling Client</cite>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="testimonial-card p-stack-md bg-surface-container-lowest rounded-lg text-reveal" data-delay="0">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">The warmth and professionalism here is unmatched. My daughter's transformation after student guidance sessions has been beautiful to witness. Forever grateful.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">R</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Rekha S.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Parent, Student Guidance</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card p-stack-md bg-surface-container-lowest rounded-lg text-reveal" data-delay="80">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">I came in overwhelmed with anxiety and left each session with practical tools and a renewed sense of hope. Truly a life-changing experience for our entire family.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">A</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Anjali K.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Family Counselling Client</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card p-stack-md bg-surface-container-lowest rounded-lg text-reveal" data-delay="160">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">The unhurried approach made all the difference. I never felt rushed or judged. After years of anxiety, I've found tools that genuinely work in day-to-day life.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">S</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Sujitha M.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Stress & Anxiety Support</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#stories" class="inline-flex items-center gap-2 text-primary font-label-md text-label-md hover:gap-3 transition-all">
+          Read More Stories <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FULL STORIES SECTION ── -->
+  <section class="py-stack-lg bg-surface-container-low" id="stories">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="p-stack-md bg-surface-container-lowest rounded-lg text-reveal border border-warm-sand/20" data-delay="0">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">The warmth and professionalism here is unmatched. My daughter's transformation after student guidance sessions has been beautiful to witness. Forever grateful.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-warm-sand/20">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">R</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Rekha S.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Parent, Student Guidance</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-stack-md bg-surface-container-lowest rounded-lg text-reveal border border-warm-sand/20" data-delay="80">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">I came in overwhelmed with anxiety and left each session with practical tools and a renewed sense of hope. Truly a life-changing experience.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-warm-sand/20">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">A</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Anjali K.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Family Counselling Client</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-stack-md bg-surface-container-lowest rounded-lg text-reveal border border-warm-sand/20" data-delay="160">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">The unhurried approach made all the difference. I never felt rushed or judged. After years of anxiety, I've found tools that genuinely work.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-warm-sand/20">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">S</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Sujitha M.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Stress & Anxiety Support</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-stack-md bg-surface-container-lowest rounded-lg text-reveal border border-warm-sand/20" data-delay="0">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">I found clarity I didn't know I was looking for. The counselling helped me understand my patterns and make confident decisions for my future.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-warm-sand/20">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">M</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Monica R.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Women Empowerment Support</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-stack-md bg-surface-container-lowest rounded-lg text-reveal border border-warm-sand/20" data-delay="80">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">Family therapy here brought us closer. We learned to communicate better and understand each other's perspectives. Grateful for this space.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-warm-sand/20">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">V</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Vikram P.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Family Counselling</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-stack-md bg-surface-container-lowest rounded-lg text-reveal border border-warm-sand/20" data-delay="160">
+          <div class="text-[3rem] text-primary/20 leading-none mb-4" style="font-family: Newsreader, serif;">"</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed italic mb-6">Therapy gave me tools to handle my emotions and build confidence in myself. I'm proud of the person I'm becoming — thank you.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-warm-sand/20">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md flex-shrink-0">D</div>
+            <div>
+              <div class="font-label-md text-label-md text-on-surface">Divya K.</div>
+              <div class="font-caption text-caption text-on-surface-variant mt-0.5">Personal Counselling</div>
+              <div class="text-primary text-sm mt-1">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impact Stats -->
+      <div class="bg-surface p-10 rounded-lg grid md:grid-cols-3 gap-8 text-center text-reveal" data-delay="100">
+        <div>
+          <div class="font-display-lg text-primary mb-2" style="font-family: Newsreader, serif; font-size: 2.8rem;">500+</div>
+          <p class="font-body-md text-on-surface-variant">Lives Transformed</p>
+        </div>
+        <div>
+          <div class="font-display-lg text-primary mb-2" style="font-family: Newsreader, serif; font-size: 2.8rem;">17+</div>
+          <p class="font-body-md text-on-surface-variant">Years of Expertise</p>
+        </div>
+        <div>
+          <div class="font-display-lg text-primary mb-2" style="font-family: Newsreader, serif; font-size: 2.8rem;">100%</div>
+          <p class="font-body-md text-on-surface-variant">Confidential & Ethical</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOOKING & CONTACT FORM ── -->
+  <section class="py-stack-lg bg-surface" id="contact">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="max-w-3xl mx-auto mb-stack-lg">
+        <div class="text-center mb-stack-lg">
+          <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase text-reveal">Get in Touch</span>
+          <h2 class="font-display-lg text-on-surface mt-3 text-reveal" style="font-family: Newsreader, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;">
+            Let's Begin Your <em style="font-style:italic;">Journey</em>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-stack-lg">
+          <!-- Left: Info -->
+          <div class="text-reveal" data-delay="0">
+            <div class="space-y-8">
+              <div>
+                <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase block mb-2">Quick Contact</span>
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="material-symbols-outlined text-primary" style="font-size:24px;">call</span>
+                  <span class="font-body-lg text-on-surface">+91 99472 62817</span>
+                </div>
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="material-symbols-outlined text-primary" style="font-size:24px;">schedule</span>
+                  <span class="font-body-lg text-on-surface">Mon–Sat, 9:00 AM–5:00 PM</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary" style="font-size:24px;">location_on</span>
+                  <span class="font-body-lg text-on-surface">Kerala, India</span>
+                </div>
+              </div>
+
+              <div>
+                <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase block mb-3">Session Options</span>
+                <p class="font-body-md text-on-surface-variant mb-3">✓ In-person sessions (private, confidential space)</p>
+                <p class="font-body-md text-on-surface-variant mb-3">✓ Online sessions (video call, flexible scheduling)</p>
+                <p class="font-body-md text-on-surface-variant">✓ Flexible booking based on your availability</p>
+              </div>
+
+              <div>
+                <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase block mb-3">Direct Contact</span>
+                <a href="#booking" onclick="openBookingModal('General Inquiry')" class="inline-flex items-center gap-2 bg-surface-container-lowest border-2 border-primary text-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-surface-container transition-all mb-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                  Message on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Form -->
+          <div class="bg-surface-container-lowest border border-warm-sand/30 rounded-xl p-stack-md shadow-sm text-reveal" data-delay="150">
+            <h3 class="font-headline-md text-headline-md mb-6" style="font-family: Newsreader, serif;">Request an Appointment</h3>
+            <div class="space-y-5">
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant">Full Name *</label>
+                <input id="fName" type="text" placeholder="Enter your name" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface placeholder:text-outline/60 transition-colors">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant">Email Address *</label>
+                <input id="fEmail" type="email" placeholder="your@email.com" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface placeholder:text-outline/60 transition-colors">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant">Phone Number *</label>
+                <input id="fPhone" type="tel" placeholder="+91 99472 62817" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface placeholder:text-outline/60 transition-colors">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant">Occupation / Grade of Studying *</label>
+                <input id="fOccupation" type="text" placeholder="Example: Teacher or Grade 10 student" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface placeholder:text-outline/60 transition-colors">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant">Preferred Appointment Date *</label>
+                <input id="fDate" type="date" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface transition-colors">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant">Service Interested In *</label>
+                <select id="fService" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface transition-colors">
+                  <option value="">Select a service</option>
+                  <option>Personal Counselling</option>
+                  <option>Women Empowerment Support</option>
+                  <option>Emotional Wellness Guidance</option>
+                  <option>Family Counselling</option>
+                  <option>Student Guidance</option>
+                  <option>Stress & Anxiety Support</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant">Preferred Session Type *</label>
+                <select id="fType" class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface transition-colors">
+                  <option value="">Select session type</option>
+                  <option>In-person</option>
+                  <option>Online (Video Call)</option>
+                  <option>Either is fine</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant">Message (Optional)</label>
+                <textarea id="fMessage" rows="3" placeholder="Tell us about your needs or concerns..." class="bg-surface-base border border-warm-sand/40 rounded px-4 py-3 font-body-md text-on-surface placeholder:text-outline/60 transition-colors resize-none"></textarea>
+              </div>
+              <button onclick="submitForm()" class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 uppercase tracking-widest rounded hover:bg-sage-deep active:scale-[0.98] transition-all duration-200 mt-4">
+                Request Appointment
+              </button>
+              <div id="formSuccess" class="hidden text-center p-4 bg-surface-container-low border border-warm-sand/30 rounded font-body-md text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary inline mr-2">check_circle</span>
+                Request sent! We'll confirm within 24 hours.
+              </div>
+              <div id="formError" class="hidden text-center p-4 bg-surface-container-low border border-warm-sand/30 rounded font-body-md text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary inline mr-2">error</span>
+                Please fill in all required fields.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="py-stack-lg bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
+      <div class="text-center mb-stack-lg">
+        <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase text-reveal">Questions?</span>
+        <h2 class="font-display-lg text-on-surface mt-3 text-reveal" style="font-family: Newsreader, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;" data-delay="100">
+          Frequently Asked <em style="font-style:italic;">Questions</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div class="text-reveal" data-delay="0">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">How do I book an appointment?</h4>
+          <p class="font-body-md text-on-surface-variant">Fill out the form above or call +91 99472 62817. We'll confirm your appointment within 24 hours. You can choose in-person or online sessions based on your preference.</p>
+        </div>
+
+        <div class="text-reveal" data-delay="80">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">Is my information confidential?</h4>
+          <p class="font-body-md text-on-surface-variant">Absolutely. All client information is strictly confidential and protected by professional ethics and privacy standards. Your trust is sacred to us.</p>
+        </div>
+
+        <div class="text-reveal" data-delay="160">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">What if I've never done therapy before?</h4>
+          <p class="font-body-md text-on-surface-variant">That's completely okay! Many first-time clients feel nervous, but you'll find a warm, welcoming environment. We'll explain everything and go at your pace.</p>
+        </div>
+
+        <div class="text-reveal" data-delay="240">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">Do you offer online sessions?</h4>
+          <p class="font-body-md text-on-surface-variant">Yes! We offer both in-person and online (video call) sessions, depending on your convenience. Both are equally effective and maintained with the same confidentiality.</p>
+        </div>
+
+        <div class="text-reveal" data-delay="0">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">What is the cancellation policy?</h4>
+          <p class="font-body-md text-on-surface-variant">We request 48 hours' notice for cancellations. This respects both your time and our scheduling. Emergency situations are always understood.</p>
+        </div>
+
+        <div class="text-reveal" data-delay="80">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">How long does therapy take?</h4>
+          <p class="font-body-md text-on-surface-variant">This varies based on your needs and goals. Each session is 50-60 minutes. Some clients benefit from short-term support, others prefer ongoing sessions. We discuss this during your first appointment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-inverse-surface py-stack-lg px-gutter md:px-margin-desktop border-t border-warm-sand/10">
+  <div class="max-w-container-max mx-auto">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <div class="md:col-span-2">
+        <div class="mb-3" style="font-family: Newsreader, serif; font-size: 1.4rem; font-weight: 400; color: #f6efef;">AKV Counselling Centre</div>
+        <p class="font-body-md leading-relaxed mb-6" style="color: rgba(246,239,239,0.6); max-width: 340px;">Empowering minds, supporting lives — with compassion, expertise, and 17 years of dedicated service to emotional wellbeing.</p>
+        <div class="flex gap-3">
+          <a href="https://wa.me/919947262817" class="w-9 h-9 rounded-full flex items-center justify-center transition-colors" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);" onmouseover="this.style.background='rgba(255,255,255,0.14)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <svg viewBox="0 0 24 24" fill="rgba(246,239,239,0.7)" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="font-label-md text-label-md uppercase tracking-[0.15em] mb-5" style="color: rgba(246,239,239,0.5);">Navigate</div>
+        <ul class="space-y-3">
+          <li><a href="#hero" class="font-body-md transition-colors" style="color: rgba(246,239,239,0.6);" onmouseover="this.style.color='#c6c7c0'" onmouseout="this.style.color='rgba(246,239,239,0.6)'">Home</a></li>
+          <li><a href="#about" class="font-body-md transition-colors" style="color: rgba(246,239,239,0.6);" onmouseover="this.style.color='#c6c7c0'" onmouseout="this.style.color='rgba(246,239,239,0.6)'">About</a></li>
+          <li><a href="#services" class="font-body-md transition-colors" style="color: rgba(246,239,239,0.6);" onmouseover="this.style.color='#c6c7c0'" onmouseout="this.style.color='rgba(246,239,239,0.6)'">Services</a></li>
+          <li><a href="#stories" class="font-body-md transition-colors" style="color: rgba(246,239,239,0.6);" onmouseover="this.style.color='#c6c7c0'" onmouseout="this.style.color='rgba(246,239,239,0.6)'">Stories</a></li>
+          <li><a href="#contact" class="font-body-md transition-colors" style="color: rgba(246,239,239,0.6);" onmouseover="this.style.color='#c6c7c0'" onmouseout="this.style.color='rgba(246,239,239,0.6)'">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-label-md text-label-md uppercase tracking-[0.15em] mb-5" style="color: rgba(246,239,239,0.5);">Contact</div>
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 font-body-md" style="color: rgba(246,239,239,0.6);">
+            <span class="material-symbols-outlined" style="font-size:15px; color: rgba(246,239,239,0.4);">call</span>
+            +91 99472 62817
+          </div>
+          <div class="flex items-center gap-2 font-body-md" style="color: rgba(246,239,239,0.6);">
+            <span class="material-symbols-outlined" style="font-size:15px; color: rgba(246,239,239,0.4);">schedule</span>
+            Mon–Sat, 9AM–5PM
+          </div>
+          <div class="flex items-center gap-2 font-body-md" style="color: rgba(246,239,239,0.6);">
+            <span class="material-symbols-outlined" style="font-size:15px; color: rgba(246,239,239,0.4);">location_on</span>
+            Kerala, India
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-3" style="border-color: rgba(255,255,255,0.08);">
+      <div class="font-body-md" style="color: rgba(246,239,239,0.4);">© 2025 AKV Counselling Centre. All rights reserved.</div>
+      <div class="font-label-md text-label-md uppercase tracking-widest" style="color: rgba(246,239,239,0.3);">Confidential · Compassionate · Certified</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function updateNavbar() {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 20) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', updateNavbar);
+  updateNavbar();
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => entry.target.classList.add('visible'), parseInt(delay));
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.text-reveal, .stagger-item').forEach(el => revealObs.observe(el));
+
+  function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+  document.getElementById('mobileClose').addEventListener('click', closeMobileMenu);
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      if (a.getAttribute('href') === '#booking') {
+        e.preventDefault();
+        return;
+      }
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  const whatsappNumber = '919947262817';
+  let selectedBookingService = 'General Appointment';
+
+  const serviceMessages = {
+    'General Appointment': 'I would like to schedule an appointment at AKV Counselling Centre.',
+    'General Inquiry': 'I would like to know more about AKV Counselling Centre and book a suitable session.',
+    'Personal Counselling': 'I would like to book a Personal Counselling session for one-on-one emotional support, clarity, and personal growth.',
+    'Women Empowerment Support': 'I would like to book a Women Empowerment Support session focused on confidence, self-worth, boundaries, and independence.',
+    'Emotional Wellness Guidance': 'I would like to book an Emotional Wellness Guidance session to improve emotional balance, coping skills, and inner calm.',
+    'Family Counselling': 'I would like to book a Family Counselling session to improve communication, resolve conflicts, and strengthen family relationships.',
+    'Student Guidance': 'I would like to book a Student Guidance session for academic pressure, career clarity, peer challenges, or emotional support.',
+    'Stress & Anxiety Support': 'I would like to book a Stress & Anxiety Support session to manage stress, anxiety, and regain calm.'
+  };
+
+  function buildWhatsAppMessage(details) {
+    const intro = serviceMessages[details.service] || serviceMessages['General Appointment'];
+    let text = '*New Appointment Request - AKV Counselling Centre*\\n\\n';
+    text += intro + '\\n\\n';
+    text += '*Client Details*\\n';
+    text += '*Name:* ' + details.name + '\\n';
+    text += '*Occupation / Grade:* ' + details.occupation + '\\n';
+    text += '*Preferred Appointment Date:* ' + details.date + '\\n';
+    text += '*Selected Service:* ' + details.service + '\\n';
+    if (details.email) text += '*Email:* ' + details.email + '\\n';
+    if (details.phone) text += '*Phone:* ' + details.phone + '\\n';
+    if (details.type) text += '*Preferred Session Type:* ' + details.type + '\\n';
+    if (details.message) text += '*Additional Message:* ' + details.message + '\\n';
+    text += '\\nPlease confirm the appointment availability. Thank you.';
+    return text;
+  }
+
+  function openWhatsApp(details) {
+    window.open('https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(buildWhatsAppMessage(details)), '_blank');
+  }
+
+  function openBookingModal(service) {
+    selectedBookingService = service || 'General Appointment';
+    document.getElementById('bookingServiceLabel').textContent = 'Selected service: ' + selectedBookingService;
+    document.getElementById('bookingError').classList.add('hidden');
+    document.getElementById('bookingModal').classList.remove('hidden');
+    document.getElementById('bookingModal').classList.add('flex');
+    setTimeout(() => document.getElementById('bookingName').focus(), 50);
+  }
+
+  function closeBookingModal() {
+    document.getElementById('bookingModal').classList.add('hidden');
+    document.getElementById('bookingModal').classList.remove('flex');
+  }
+
+  function sendBookingMessage() {
+    const name = document.getElementById('bookingName').value.trim();
+    const occupation = document.getElementById('bookingOccupation').value.trim();
+    const date = document.getElementById('bookingDate').value;
+    const errorEl = document.getElementById('bookingError');
+    errorEl.classList.add('hidden');
+
+    if (!name || !occupation || !date) {
+      errorEl.classList.remove('hidden');
+      return;
+    }
+
+    openWhatsApp({ name, occupation, date, service: selectedBookingService });
+    closeBookingModal();
+  }
+
+  document.getElementById('bookingModal').addEventListener('click', (event) => {
+    if (event.target.id === 'bookingModal') closeBookingModal();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeBookingModal();
+  });
+
+  function submitForm() {
+    const name = document.getElementById('fName').value.trim();
+    const email = document.getElementById('fEmail').value.trim();
+    const phone = document.getElementById('fPhone').value.trim();
+    const service = document.getElementById('fService').value;
+    const type = document.getElementById('fType').value;
+    const message = document.getElementById('fMessage').value.trim();
+
+    const errorEl = document.getElementById('formError');
+    const successEl = document.getElementById('formSuccess');
+    errorEl.classList.add('hidden');
+    successEl.classList.add('hidden');
+
+    if (!name || !email || !phone || !service || !type) {
+      errorEl.classList.remove('hidden');
+      return;
+    }
+
+    let waMsg = '*New Appointment Request — AKV Counselling*\n\n';
+    waMsg += '*Name:* ' + name + '\n';
+    waMsg += '*Email:* ' + email + '\n';
+    waMsg += '*Phone:* ' + phone + '\n';
+    waMsg += '*Service:* ' + service + '\n';
+    waMsg += '*Session Type:* ' + type + '\n';
+    if (message) waMsg += '*Message:* ' + message + '\n';
+    waMsg += '\n_I would like to schedule an appointment. Please confirm the details._';
+
+    successEl.classList.remove('hidden');
+
+    setTimeout(() => {
+      window.open('https://wa.me/919947262817?text=' + encodeURIComponent(waMsg), '_blank');
+    }, 1000);
+  }
+</script>
+</body>
+</html>
