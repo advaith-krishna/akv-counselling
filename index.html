@@ -972,6 +972,13 @@
 
   <!-- ── FAQ ── -->
   <section class="py-stack-lg bg-surface-container-low">
+    <style>
+      .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+      .faq-item.active .faq-answer { max-height: 500px; }
+      .faq-icon { transition: transform 0.3s ease; }
+      .faq-item.active .faq-icon { transform: rotate(180deg); }
+      .faq-question { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    </style>
     <div class="max-w-container-max mx-auto px-gutter md:px-margin-desktop">
       <div class="text-center mb-stack-lg">
         <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase text-reveal">Questions?</span>
@@ -981,34 +988,70 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-        <div class="text-reveal" data-delay="0">
-          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">How do I book an appointment?</h4>
-          <p class="font-body-md text-on-surface-variant">Fill out the form above or call +91 99472 62817. We'll confirm your appointment within 24 hours. You can choose in-person or online sessions based on your preference.</p>
+        <!-- FAQ item 1 -->
+        <div class="text-reveal faq-item" data-delay="0">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3 faq-question" style="font-family: Newsreader, serif;">
+            How do I book an appointment?
+            <span class="faq-icon material-symbols-outlined" style="font-size:24px;">expand_more</span>
+          </h4>
+          <p class="font-body-md text-on-surface-variant faq-answer">
+            Fill out the form above or call +91 99472 62817. We'll confirm your appointment within 24 hours. You can choose in-person or online sessions based on your preference.
+          </p>
         </div>
 
-        <div class="text-reveal" data-delay="80">
-          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">Is my information confidential?</h4>
-          <p class="font-body-md text-on-surface-variant">Absolutely. All client information is strictly confidential and protected by professional ethics and privacy standards. Your trust is sacred to us.</p>
+        <!-- FAQ item 2 -->
+        <div class="text-reveal faq-item" data-delay="80">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3 faq-question" style="font-family: Newsreader, serif;">
+            Is my information confidential?
+            <span class="faq-icon material-symbols-outlined" style="font-size:24px;">expand_more</span>
+          </h4>
+          <p class="font-body-md text-on-surface-variant faq-answer">
+            Absolutely. All client information is strictly confidential and protected by professional ethics and privacy standards. Your trust is sacred to us.
+          </p>
         </div>
 
-        <div class="text-reveal" data-delay="160">
-          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">What if I've never done therapy before?</h4>
-          <p class="font-body-md text-on-surface-variant">That's completely okay! Many first-time clients feel nervous, but you'll find a warm, welcoming environment. We'll explain everything and go at your pace.</p>
+        <!-- FAQ item 3 -->
+        <div class="text-reveal faq-item" data-delay="160">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3 faq-question" style="font-family: Newsreader, serif;">
+            What if I've never done therapy before?
+            <span class="faq-icon material-symbols-outlined" style="font-size:24px;">expand_more</span>
+          </h4>
+          <p class="font-body-md text-on-surface-variant faq-answer">
+            That's completely okay! Many first-time clients feel nervous, but you'll find a warm, welcoming environment. We'll explain everything and go at your pace.
+          </p>
         </div>
 
-        <div class="text-reveal" data-delay="240">
-          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">Do you offer online sessions?</h4>
-          <p class="font-body-md text-on-surface-variant">Yes! We offer both in-person and online (video call) sessions, depending on your convenience. Both are equally effective and maintained with the same confidentiality.</p>
+        <!-- FAQ item 4 -->
+        <div class="text-reveal faq-item" data-delay="240">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3 faq-question" style="font-family: Newsreader, serif;">
+            Do you offer online sessions?
+            <span class="faq-icon material-symbols-outlined" style="font-size:24px;">expand_more</span>
+          </h4>
+          <p class="font-body-md text-on-surface-variant faq-answer">
+            Yes! We offer both in-person and online (video call) sessions, depending on your convenience. Both are equally effective and maintained with the same confidentiality.
+          </p>
         </div>
 
-        <div class="text-reveal" data-delay="0">
-          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">What is the cancellation policy?</h4>
-          <p class="font-body-md text-on-surface-variant">We request 48 hours' notice for cancellations. This respects both your time and our scheduling. Emergency situations are always understood.</p>
+        <!-- FAQ item 5 -->
+        <div class="text-reveal faq-item" data-delay="0">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3 faq-question" style="font-family: Newsreader, serif;">
+            What is the cancellation policy?
+            <span class="faq-icon material-symbols-outlined" style="font-size:24px;">expand_more</span>
+          </h4>
+          <p class="font-body-md text-on-surface-variant faq-answer">
+            We request 48 hours' notice for cancellations. This respects both your time and our scheduling. Emergency situations are always understood.
+          </p>
         </div>
 
-        <div class="text-reveal" data-delay="80">
-          <h4 class="font-headline-md text-headline-md text-primary mb-3" style="font-family: Newsreader, serif;">How long does therapy take?</h4>
-          <p class="font-body-md text-on-surface-variant">This varies based on your needs and goals. Each session is 50-60 minutes. Some clients benefit from short-term support, others prefer ongoing sessions. We discuss this during your first appointment.</p>
+        <!-- FAQ item 6 -->
+        <div class="text-reveal faq-item" data-delay="80">
+          <h4 class="font-headline-md text-headline-md text-primary mb-3 faq-question" style="font-family: Newsreader, serif;">
+            How long does therapy take?
+            <span class="faq-icon material-symbols-outlined" style="font-size:24px;">expand_more</span>
+          </h4>
+          <p class="font-body-md text-on-surface-variant faq-answer">
+            This varies based on your needs and goals. Each session is 50-60 minutes. Some clients benefit from short-term support, others prefer ongoing sessions. We discuss this during your first appointment.
+          </p>
         </div>
       </div>
     </div>
@@ -1208,6 +1251,17 @@
       window.open('https://wa.me/919947262817?text=' + encodeURIComponent(waMsg), '_blank');
     }, 1000);
   }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+});
 </script>
 </body>
 </html>
